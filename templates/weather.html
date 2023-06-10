@@ -2,16 +2,9 @@
 <html>
 <head>
     <title>Weather</title>
-</head>
-<body>
-    <h2>Weather in {{ city }}</h2>
-    <p>Temperature: {{ temperature }}°C</p>
-
-    <div class="back-button">
-        <a href="/">Back</a>
-    </div>
-
     <style>
+        /* CSS styles for the page */
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -22,9 +15,14 @@
             text-align: center;
         }
 
-        p {
+        .weather-info {
             text-align: center;
+            margin: 20px;
+        }
+
+        .weather-info p {
             font-size: 24px;
+            margin-bottom: 10px;
         }
 
         .back-button {
@@ -43,9 +41,20 @@
         }
 
         .back-button a:hover {
-            background-color: #010a8d;
+            background-color: #09078d;
         }
-
     </style>
+</head>
+<body>
+    <h2>Weather in {{ city }}</h2>
+    <div class="weather-info">
+        <p>Temperature: {{ temperature }}°C</p>
+        <p>Weather Description: {{ description }}</p>
+        <p>Humidity: {{ humidity }}%</p>
+    </div>
+
+    <div class="back-button">
+        <a href="/">Back</a>
+    </div>
 </body>
 </html>
