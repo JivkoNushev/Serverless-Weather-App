@@ -13,9 +13,9 @@ def weather():
     city = request.form['city']
 
     # Call the get_weather function
-    temperature = get_weather(city)
+    temperature, humidity = get_weather(city)
 
-    return render_template('weather.html', city=city, temperature=temperature)
+    return render_template('weather.html', city=city, temperature=temperature, humidity=humidity)
 
 def get_weather(city):
     # Replace 'YOUR_API_KEY' with your actual Weatherbit API key
@@ -29,8 +29,9 @@ def get_weather(city):
 
         # Extract temperature from weather data
         temperature = weather_data['data'][0]['temp']
+        humidity = weather_data['data'][0]['hum']
 
-        return temperature
+        return temperature, humidity
     except requests.exceptions.RequestException as e:
         print(f"Error occurred while retrieving weather data: {e}")
         return None
